@@ -1,7 +1,7 @@
 import express from "express"
 const app = express()
 const PORT = 5502;
-let pets = [
+let boards = [
   { id: 0, age: 3, name: "Luna", type: "dog", adopted: false },
   { id: 1, age: 2, name: "Milo", type: "cat", adopted: false },
   { id: 2, age: 1, name: "Bubbles", type: "fish", adopted: false },

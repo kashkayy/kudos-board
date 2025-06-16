@@ -1,17 +1,17 @@
 export default function Board(){
   return(
     <>
-      <article className="movie-card" onClick={clicked}>
-        <div className="image-container">
-          <span className="watched" onClick={watched}>{isWatched? "👁️":"🫣"}</span>
-          <img className="movie-image" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-          <div className="movie-image-overlay">
-            <span className="heart-color" onClick={favorited}>{isLiked? "❤️":"🤍"}</span>
-          </div>
+      <article className="board-card">
+        <div className="board-image-container">
+          <img className="board-image"/>
         </div>
-        <div className="movie-info">
-          <h2 className="movie-title">{movie.title}</h2>
-          <p className="movie-rating">⭐️rating: {movie.vote_average}</p>
+        <div className="board-info">
+          <h2 className="board-title">{board.title}</h2>
+          <p className="board-category">{board.category}</p>
+        </div>
+        <div className="view-and-delete">
+          <button>View board</button>
+          <button>Delete board</button>
         </div>
       </article>
     </>
