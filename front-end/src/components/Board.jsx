@@ -10,7 +10,7 @@ export default function Board(){
           <p className="board-category">{board.category}</p>
         </div>
         <div className="view-and-delete">
-          <button>View board</button>
+          <a>View board</a>
           <button>Delete board</button>
         </div>
       </article>
