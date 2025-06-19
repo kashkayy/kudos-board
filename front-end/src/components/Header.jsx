@@ -1,7 +1,8 @@
 export default function Header(){
   return(
     <>
-      <h1>Kudos board</h1>
+      <header>Kudos Board</header>
+      <h1>5 ⭐️ Board</h1>
     </>
   )
 }
