@@ -1,1 +1,3 @@
-// This is serves as my mini client :)
+### 
+POST  http://localhost:5502/board
+

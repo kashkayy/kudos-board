@@ -1,9 +1,11 @@
 -- CreateTable
 CREATE TABLE "Board" (
     "id" SERIAL NOT NULL,
+    "imgUrl" TEXT,
     "title" TEXT NOT NULL,
     "category" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "author" TEXT NOT NULL,
 
     CONSTRAINT "Board_pkey" PRIMARY KEY ("id")
 );
