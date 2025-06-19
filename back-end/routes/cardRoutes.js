@@ -38,5 +38,4 @@ try{
   }catch(err){
     res.status(500).json({message: 'Failed to delete the card.'})
   }
-})
 export default router

@@ -16,3 +16,6 @@ GET http://localhost:5502/boards/newboard
 DELETE http://localhost:5502/boards/5/cards/4
 ###
 DELETE http://localhost:5502/boards/4
+=======
+POST  http://localhost:5502/board
+
