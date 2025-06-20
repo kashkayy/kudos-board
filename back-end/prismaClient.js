@@ -29,12 +29,14 @@ export async function deleteBoard(id){
     where : {id: Number(id)}
   });
 }
-export async function createCard(title, description, owner){
+export async function createCard(title, description, owner, gifUrl){
   return await prisma.card.create({
     data: {
       title,
       description,
       owner,
+      gifUrl,
+      boardId,
     }
   })
 }

@@ -15,7 +15,7 @@ router.get('/:title', async (req, res) => {
   const {title} = req.params;
   try{
     const boards = await getBoardsByTitle(title);
-    res.json(boards)
+    res.json({results: boards})
   } catch (err){
     res.status(404).json({message: 'Board does not exist :('})
   } 
@@ -23,7 +23,7 @@ router.get('/:title', async (req, res) => {
 //This will allow user create a new board
 router.post('/', async (req,res) => {
   const {title, category, author} = req.body
-  if(!title || !category || !author){
+  if(!title || !category){
     res.status(400).json({message: 'Fill all required fields.'})
   }
   try{

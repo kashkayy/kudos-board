@@ -4,7 +4,7 @@ export default function KudoCard({card}){
       <article className="kudo-card">
         <h2>{card.title}</h2>
         <p>{card.description}</p>
-        <img src="" alt="cardGif"/>
+        <img src={card.gifUrl} alt="cardGif"/>
         <div className="card-actions">
           <button id="upvote">Upvote</button>
           <button>Delete</button>

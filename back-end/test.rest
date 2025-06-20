@@ -3,19 +3,19 @@ POST  http://localhost:5502/boards
 Content-Type: application/json
 
 {
-  "title": "newboard",
-  "author": "eman",
-  "category": "inspiration"
+  "title": "throwaway",
+  "author": "moneyy",
+  "category": "thank you"
 } 
 
 ###
 DELETE http://localhost:5502/boards/2
 ###
-GET http://localhost:5502/boards/newboard
+GET http://localhost:5502/boards/1/cards
 ###
-DELETE http://localhost:5502/boards/5/cards/4
+DELETE http://localhost:5502/boards/8
 ###
 DELETE http://localhost:5502/boards/4
-=======
+###
 POST  http://localhost:5502/board
 

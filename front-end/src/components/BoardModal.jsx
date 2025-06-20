@@ -1,24 +1,44 @@
-export default function BoardModal(){
+import { useState } from "react";
+export default function BoardModal({newBoard, onClose}){
+  const [title, setTitle] = useState("")
+  const [author, setAuthor] = useState("")
+  const [category, setCategory] = useState("")
+  function handleSubmit(event){
+    event.preventDefault();
+    newBoard({title, category, author})
+    setTitle("")
+    setAuthor("")
+    setCategory("")
+    onClose()
+  }
   return(
     <>
-      <form action="/" method="post">
+      <div className="modal">
         <div className="modal-content-container">
-        <div className="modal-content">
-        <h2><strong>Create a new board</strong></h2>
-        <span>Title: </span>
-        <input type="text"></input>
-        <span>Category: </span>
-        <select>
-        <option>Celebration</option>
-        <option>Thank You</option>
-        <option>Inspiration</option>
-        </select>
-        <span>Author: </span>
-        <input type="text"></input>
-        <input type="submit" value="Create" id="create-board"></input>
+          <button className="close-btn" onClick={onClose}>X</button>
+          <div className="modal-content">
+            <h2><strong>Create a new board</strong></h2>
+            <form onSubmit={handleSubmit} id="new-board-form">
+              <label>
+                Title:<input type="text" value={title} onChange={(event) => setTitle(event.target.value)} required/>
+              </label>
+              <label>
+                Category: 
+                <select value={category} onChange={(event) => setCategory(event.target.value)} required>
+                  <option value=""></option>
+                  <option value="celebration">Celebration</option>
+                  <option value="Thank You">Thank You</option>
+                  <option value="inspiration">Inspiration</option>
+                </select>
+              </label>
+              <label>
+                Author:<input type="text" value={author} onChange={(event) => setAuthor(event.target.value)}/>
+              </label>
+              <button type="submit" id="create-board">Generate Board</button>
+            </form>
+          </div>
         </div>
-        </div>
-      </form>
+      </div>
     </>
   )
 }

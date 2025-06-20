@@ -14,8 +14,10 @@ CREATE TABLE "Board" (
 CREATE TABLE "Card" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
+    "gifUrl" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "owner" TEXT,
+    "upvotes" INTEGER NOT NULL DEFAULT 0,
     "boardId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

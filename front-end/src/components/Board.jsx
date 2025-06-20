@@ -1,5 +1,5 @@
 import {Link} from "react-router"
-export default function Board({board}){
+export default function Board({board, onDeleteClick}){
   return(
     <>
       <article className="board-card">
@@ -12,8 +12,8 @@ export default function Board({board}){
             <p className="board-category">{board.category}</p>
           </div>
           <div className="view-and-delete">
-            <Link to="/boards/:id/cards"><button>View board</button></Link>
-            <button>Delete board</button>
+            <Link to={`/boards/${board.id}/cards`}><button>View board</button></Link>
+            <button onClick={() => onDeleteClick(board.id)}>Delete board</button>
           </div>
         </div>
       </article>

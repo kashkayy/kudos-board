@@ -13,7 +13,18 @@ router.get('/:boardId/cards', async (req,res) => {
 })
 //This will allow user create a new card
 router.post('/:boardId/cards', async (req,res) => {
-
+  const {boardId} = req.params
+  const {title, gifUrl, description, owner} = req.body
+    if(!title || !gifUrl || !description){
+      return res.status(400).json({message: 'Fill all required fields.'})
+    }
+    try{
+      await createCard(Number(boardId), title, gifUrl, owner, description);
+      const updatedCards = await getCards()
+      res.status(201).json({results : updatedCards})
+    }catch(err){
+      res.status(500).json({message: 'Failed to create new card.'})
+    }
 })
 //This will allow user delete card
 router.delete('/:boardId/cards/:id', async (req,res) => {
@@ -38,4 +49,5 @@ try{
   }catch(err){
     res.status(500).json({message: 'Failed to delete the card.'})
   }
+})
 export default router
