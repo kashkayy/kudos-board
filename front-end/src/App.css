@@ -160,7 +160,7 @@ button[type="submit"] {
   margin: 5rem;
   align-items: center;
   flex-direction: column;
-  border: none;
+  border: solid;
   border-radius: 0.5rem;
   cursor: pointer;
   background-color: none;
