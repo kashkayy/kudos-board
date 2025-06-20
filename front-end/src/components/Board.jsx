@@ -8,8 +8,8 @@ export default function Board({board, onDeleteClick}){
             <img className="board-image" src='https://picsum.photos/200/300'/>
           </div>
           <div className="board-info">
-            <h2 className="board-title">{board.title}</h2>
-            <p className="board-category">{board.category}</p>
+            <h2 className="board-title"><strong>Title: </strong>{board.title}</h2>
+            <p className="board-category"><strong>Category: </strong>{board.category}</p>
           </div>
           <div className="view-and-delete">
             <Link to={`/boards/${board.id}/cards`}><button>View board</button></Link>

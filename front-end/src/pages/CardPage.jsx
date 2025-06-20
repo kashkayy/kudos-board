@@ -1,6 +1,5 @@
 import { useState } from "react"
 import CardContainer from "../containers/CardContainer"
-import CardModal from "../components/CardModal"
 import { useParams } from "react-router";
 export default function CardPage(){
   const {boardId} = useParams()

@@ -1,16 +1,6 @@
-import { useState } from "react"
 export default function Search({searchQuery, setSearchQuery, onSearch}){
   function handleClear(){
     setSearchQuery("")}
-  // }
-  // function handleInputChange(event){
-  //   const value = event.target.value
-  //   setSearchQuery(value)
-  // }
-  // }
-  // function searchResult(){
-  //   onQueryChange(input)
-  // }
   return(
     <>
       <div id="board-search">

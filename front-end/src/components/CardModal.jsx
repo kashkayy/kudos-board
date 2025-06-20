@@ -1,12 +1,21 @@
 import { useState } from "react"
-export default function CardModal({newCard, onClose}){
+export default function CardModal({newCard, onClose, boardId}){
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [owner, setOwner] = useState("")
   const [gifUrl, setGifUrl] = useState("")
+  const [gifSearch, setGifSearch] = useState("")
+  const [gifResults, setGifResults] = useState([])
+  async function handleGifSearch(){
+    const API_KEY = "mpbdsixSbVmzvTTir9nhm6wSgB66ccxF"
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${API_KEY}&limit=4`);
+    const gifs = await response.json()
+    setGifResults(gifs.data)
+  }
+  console.log(gifResults)
   function handleSubmit(event){
     event.preventDefault();
-    newCard({title, description, owner, gifUrl})
+    newCard({title, description, owner, gifUrl}, boardId)
     setTitle("")
     setOwner("")
     setDescription("")
@@ -27,8 +36,14 @@ export default function CardModal({newCard, onClose}){
               <label>
                 Message:<input type="text" value={description} onChange={(event) => setDescription(event.target.value)} required/>
               </label>
+              <input type="text" placeholder="search GIFs" value={gifSearch} onChange={(event) => setGifSearch(event.target.value)}/>
+              <div className="gif-results">
+                {gifResults.map((gif) => (
+                  <img key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} onClick={() => setGifUrl(gif.images.fixed_height.url)}/>))}
+              </div>
+              <button type="button" onClick={handleGifSearch}>Search</button>
               <label>
-                Cover:<input type="text" value={gifUrl} onChange={(event) => setGifUrl(event.target.value)} required/>
+                Card GIF:<input type="text" value={gifUrl} required/>
               </label>
               <label>
                 Author:<input type="text" value={owner} onChange={(event) => setOwner(event.target.value)}/>

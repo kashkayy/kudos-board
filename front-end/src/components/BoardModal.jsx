@@ -20,19 +20,19 @@ export default function BoardModal({newBoard, onClose}){
             <h2><strong>Create a new board</strong></h2>
             <form onSubmit={handleSubmit} id="new-board-form">
               <label>
-                Title:<input type="text" value={title} onChange={(event) => setTitle(event.target.value)} required/>
+                Title:<input type="text" placeholder="Enter a title..." value={title} onChange={(event) => setTitle(event.target.value)} required/>
               </label>
               <label>
                 Category: 
                 <select value={category} onChange={(event) => setCategory(event.target.value)} required>
-                  <option value=""></option>
+                  <option value="">Choose a category</option>
                   <option value="celebration">Celebration</option>
                   <option value="Thank You">Thank You</option>
                   <option value="inspiration">Inspiration</option>
                 </select>
               </label>
               <label>
-                Author:<input type="text" value={author} onChange={(event) => setAuthor(event.target.value)}/>
+                Author:<input type="text" placeholder="Who created this?(optional)" value={author} onChange={(event) => setAuthor(event.target.value)}/>
               </label>
               <button type="submit" id="create-board">Generate Board</button>
             </form>

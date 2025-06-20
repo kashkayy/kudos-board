@@ -19,8 +19,8 @@ router.post('/:boardId/cards', async (req,res) => {
       return res.status(400).json({message: 'Fill all required fields.'})
     }
     try{
-      await createCard(Number(boardId), title, gifUrl, owner, description);
-      const updatedCards = await getCards()
+      await createCard(title,description, owner,gifUrl, Number(boardId));
+      const updatedCards = await getCards(boardId)
       res.status(201).json({results : updatedCards})
     }catch(err){
       res.status(500).json({message: 'Failed to create new card.'})
@@ -29,11 +29,11 @@ router.post('/:boardId/cards', async (req,res) => {
 //This will allow user delete card
 router.delete('/:boardId/cards/:id', async (req,res) => {
   const {boardId, id} = req.params
-  if (!boardId){
+  if (!boardId|| !id){
     return res.status(400).json({message: 'Error!'})
   }
   try{
-    await deleteCard(id)
+    await deleteCard(Number(id))
     const cards = await getCards(boardId)
     res.status(200).json({results: cards})
   }catch(err){
@@ -42,12 +42,12 @@ router.delete('/:boardId/cards/:id', async (req,res) => {
 })
 //This handles the upvotes
 router.put('/:boardId/cards/:id', async (req, res) => {
-const {id} = req.params
+const {boardId, id} = req.params
 try{
     const updated = await updateCard(id)
     res.status(200).json(updated)
   }catch(err){
-    res.status(500).json({message: 'Failed to delete the card.'})
+    res.status(500).json({message: 'Failed to update the card.'})
   }
 })
 export default router
