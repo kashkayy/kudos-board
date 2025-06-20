@@ -207,4 +207,6 @@ footer{
   background-color: #f8f8f8;
   color: black;
 }
-
+#card-page-title{
+  font-size: 2rem;
+}

@@ -12,7 +12,7 @@ export default function Board({board, onDeleteClick}){
             <p className="board-category"><strong>Category: </strong>{board.category}</p>
           </div>
           <div className="view-and-delete">
-            <Link to={`/boards/${board.id}/cards`}><button>View board</button></Link>
+            <Link to={`/boards/${board.id}/cards`} state={{title:board.title}}><button>View board</button></Link>
             <button onClick={() => onDeleteClick(board.id)}>Delete board</button>
           </div>
         </div>
