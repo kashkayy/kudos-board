@@ -14,6 +14,7 @@ export default function App() {
           <Header/>
           <ThemeProvider>
             <MainContainer>
+            <h1>5 ⭐️ Board</h1>
               <ToggleButton/>
               <Routes>
                   <Route path='/' element={<BoardPage/>}/>
