@@ -7,7 +7,7 @@ export default function CardModal({newCard, onClose, boardId}){
   const [gifSearch, setGifSearch] = useState("")
   const [gifResults, setGifResults] = useState([])
   async function handleGifSearch(){
-    const API_KEY = "mpbdsixSbVmzvTTir9nhm6wSgB66ccxF"
+    const API_KEY = import.meta.env.VITE_API_KEY
     const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${gifSearch}&api_key=${API_KEY}&limit=4`);
     const gifs = await response.json()
     setGifResults(gifs.data)

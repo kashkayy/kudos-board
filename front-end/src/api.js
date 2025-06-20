@@ -1,5 +1,5 @@
 //Back end functions
-const BASE_URL = "http://localhost:5502"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 export async function fetchBoards(){
   const res = await fetch(`${BASE_URL}/boards`)
   const data = await res.json()
