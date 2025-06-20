@@ -7,7 +7,7 @@ export default function ToggleButton(){
   }
   return(
     <>
-      <button id="toggle" onClick={handleClick}>{darkMode ? "Light Mode":"Dark Mode"}</button>
+      <button id="toggle" onClick={handleClick}>{darkMode ? "Switch to Light Mode":"Switch to Dark Mode"}</button>
     </>
   )
 }
